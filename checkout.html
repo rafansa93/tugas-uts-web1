@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemesanan - Toko Buku Online</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+  <header>
+    <h1>🛒 Halaman Pemesanan</h1>
+    <nav aria-label="Navigasi utama">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="stok.html" class="nav-link">Katalog</a>
+      <a href="#" id="linkLogout" class="nav-link">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. Data Pemesanan -->
+    <section aria-labelledby="jdlPesanan">
+      <h2 id="jdlPesanan"><span class="no">1</span> Data Pemesanan</h2>
+      <div class="toolbar">
+        <select id="pilihBuku" aria-label="Pilih buku" style="flex:3 1 260px"></select>
+        <input type="number" id="jumlahBaru" min="1" value="1" aria-label="Jumlah" style="flex:0 1 90px">
+        <button type="button" id="btnTambah">+ Tambah ke Pesanan</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>No</th><th>Buku</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th><th>Aksi</th></tr></thead>
+          <tbody id="tabelPesanan"></tbody>
+        </table>
+      </div>
+      <p class="catatan">Judul buku dan jumlah pada tabel dapat diubah langsung.</p>
+    </section>
+
+    <form id="formCheckout" novalidate>
+      <!-- 2. Data Pemesan -->
+      <section aria-labelledby="jdlPemesan">
+        <h2 id="jdlPemesan"><span class="no">2</span> Informasi Pemesan</h2>
+        <div class="form-grid">
+          <div><label for="nama">Nama Lengkap</label><input type="text" id="nama"><span class="error" id="errNama"></span></div>
+          <div><label for="email">Email</label><input type="email" id="email"><span class="error" id="errEmail"></span></div>
+          <div><label for="telepon">No. Telepon</label><input type="tel" id="telepon" placeholder="08xxxxxxxxxx"><span class="error" id="errTelepon"></span></div>
+          <div><label for="kurir">Pengiriman</label>
+            <select id="kurir">
+              <option value="">-- Pilih pengiriman --</option>
+              <option>JNE Reguler</option><option>J&amp;T Express</option><option>SiCepat</option><option>Ambil di Toko</option>
+            </select><span class="error" id="errKurir"></span></div>
+          <div class="full"><label for="alamat">Alamat Pengiriman</label><textarea id="alamat" rows="3"></textarea><span class="error" id="errAlamat"></span></div>
+          <div class="full"><label for="catatanPesan">Catatan (opsional)</label><input type="text" id="catatanPesan" placeholder="Contoh: bungkus kado"></div>
+        </div>
+      </section>
+
+      <!-- 3. Pembayaran -->
+      <section aria-labelledby="jdlBayar">
+        <h2 id="jdlBayar"><span class="no">3</span> Pembayaran</h2>
+        <div class="form-grid">
+          <div><label for="metode">Metode Pembayaran</label>
+            <select id="metode">
+              <option value="">-- Pilih metode --</option>
+              <option>Transfer Bank</option><option>E-Wallet</option><option>COD</option>
+            </select><span class="error" id="errMetode"></span></div>
+          <div id="boxDetail" hidden><label for="detailMetode" id="lblDetail">Pilih</label>
+            <select id="detailMetode"></select><span class="error" id="errDetail"></span></div>
+        </div>
+
+        <dl class="ringkasan">
+          <div><dt>Subtotal</dt><dd id="rSubtotal">Rp 0</dd></div>
+          <div><dt>Ongkos Kirim</dt><dd id="rOngkir">Rp 0</dd></div>
+          <div class="grand"><dt>Total Bayar</dt><dd id="rTotal">Rp 0</dd></div>
+        </dl>
+        <p style="text-align:right"><button type="submit" class="besar">Buat Pesanan</button></p>
+      </section>
+    </form>
+  </main>
+
+  <footer><small>&copy; 2026 Toko Buku Online — Tugas UTS</small></footer>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalJudul">
+    <div class="modal-box">
+      <h2 id="modalJudul">Konfirmasi Pesanan</h2>
+      <div id="modalIsi"></div>
+      <div class="modal-actions">
+        <button type="button" class="secondary" id="btnBatal">Periksa Lagi</button>
+        <button type="button" id="btnKonfirmasi">Konfirmasi &amp; Bayar</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" role="status"></div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

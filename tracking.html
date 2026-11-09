@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracking Pengiriman - Toko Buku Online</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tracking.css">
+</head>
+<body>
+  <header>
+    <h1>🚚 Informasi Pengiriman</h1>
+    <nav aria-label="Navigasi utama">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="checkout.html" class="nav-link">Pesan Buku</a>
+      <a href="#" id="linkLogout" class="nav-link">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="cari-box" aria-labelledby="jdlCari">
+      <h2 id="jdlCari">Lacak Pesanan Anda</h2>
+      <form id="formCari" novalidate>
+        <label for="noDO">Nomor Delivery Order</label>
+        <div class="baris-cari">
+          <input type="text" id="noDO" placeholder="Contoh: DO-20261103" autocomplete="off">
+          <button type="submit">🔍 Cari</button>
+        </div>
+        <span class="error" id="errDO"></span>
+      </form>
+      <p class="contoh">Coba nomor contoh:
+        <span id="chipContoh"></span>
+      </p>
+    </section>
+
+    <section id="hasil" class="hasil" hidden aria-live="polite">
+      <div class="hasil-atas">
+        <div>
+          <p class="label">Nama Pemesan</p>
+          <h2 id="hNama"></h2>
+          <p class="nomor">No. Delivery Order: <strong id="hNo"></strong></p>
+        </div>
+        <span class="badge-status" id="hBadge"></span>
+      </div>
+
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="progress">
+        <div class="progress-isi" id="progressIsi"></div>
+      </div>
+      <p class="persen" id="hPersen"></p>
+
+      <ol class="langkah" id="langkah"></ol>
+
+      <h3>Detail Pengiriman</h3>
+      <table class="detail">
+        <tbody>
+          <tr><th>Ekspedisi</th><td id="hEkspedisi"></td></tr>
+          <tr><th>Nomor Resi</th><td id="hResi"></td></tr>
+          <tr><th>Tanggal Kirim</th><td id="hTanggal"></td></tr>
+          <tr><th>Jenis Paket</th><td id="hPaket"></td></tr>
+          <tr><th>Total Pembayaran</th><td id="hTotal"></td></tr>
+        </tbody>
+      </table>
+      <p style="text-align:right">
+        <button type="button" class="secondary" id="btnSimulasi">▶ Majukan Status (Simulasi)</button>
+      </p>
+    </section>
+  </main>
+
+  <footer><small>&copy; 2026 Toko Buku Online — Tugas UTS</small></footer>
+
+  <div class="modal" id="modalGagal" role="alertdialog" aria-modal="true" aria-labelledby="judulGagal">
+    <div class="modal-box">
+      <h2 id="judulGagal">❌ Data Tidak Ditemukan</h2>
+      <p id="pesanGagal"></p>
+      <div class="modal-actions"><button type="button" id="btnTutupGagal">Tutup</button></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

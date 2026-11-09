@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Toko Buku Online</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-page">
+  <header>
+    <h1>📚 Toko Buku Online</h1>
+    <nav aria-label="Navigasi utama">
+      <span id="namaUser" class="user-chip"></span>
+      <button type="button" id="btnLogout" class="secondary">Logout</button>
+    </nav>
+  </header>
+
+  <main class="dash-main">
+    <section class="greeting" aria-live="polite">
+      <div class="greeting-icon" id="ikonSapa">👋</div>
+      <div>
+        <h2 id="sapa">Selamat Datang</h2>
+        <p id="tanggal" class="sub"></p>
+      </div>
+      <div class="jam" id="jam" aria-label="Jam sekarang"></div>
+    </section>
+
+    <section aria-labelledby="judulMenu">
+      <h2 id="judulMenu" class="judul-menu">Menu Utama</h2>
+      <nav class="menu-grid" aria-label="Menu dashboard">
+        <a class="menu-card" href="index.html" id="menuKatalog">
+          <span class="menu-ikon">📖</span>
+          <h3>Informasi Stok / Katalog</h3>
+          <p>Lihat daftar buku, harga, stok, dan pesan buku.</p>
+          <span class="menu-btn">Buka</span>
+        </a>
+        <a class="menu-card" href="tracking.html" id="menuTracking">
+          <span class="menu-ikon">🚚</span>
+          <h3>Tracking Pengiriman</h3>
+          <p>Pantau status pengiriman pesanan Anda.</p>
+          <span class="menu-btn">Buka</span>
+        </a>
+        <a class="menu-card" href="laporan.html" id="menuLaporan">
+          <span class="menu-ikon">📊</span>
+          <h3>Laporan Pemesanan</h3>
+          <p>Ringkasan data pemesanan buku.</p>
+          <span class="menu-btn">Buka</span>
+        </a>
+        <a class="menu-card" href="history.html" id="menuHistory">
+          <span class="menu-ikon">🧾</span>
+          <h3>History Transaksi</h3>
+          <p>Riwayat transaksi yang pernah dilakukan.</p>
+          <span class="menu-btn">Buka</span>
+        </a>
+      </nav>
+    </section>
+  </main>
+
+  <footer><small>&copy; 2026 Toko Buku Online — Tugas UTS</small></footer>
+
+  <script src="script.js"></script>
+  <script src="data.js"></script>
+
+</body>
+</html>
+

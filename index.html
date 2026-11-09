@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Toko Buku Online</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-page">
+  <main class="login-wrapper">
+    <aside class="brand-panel" aria-hidden="true">
+      <div class="logo">📚</div>
+      <h2>Toko Buku Online</h2>
+      <p>Temukan buku favoritmu dan pesan dengan mudah dari mana saja.</p>
+      <ul>
+        <li>Ratusan judul pilihan</li>
+        <li>Pemesanan cepat dan praktis</li>
+        <li>Pembayaran fleksibel</li>
+      </ul>
+    </aside>
+
+    <section class="login-card" aria-labelledby="judulLogin">
+      <h1 id="judulLogin">Selamat Datang 👋</h1>
+      <p class="sub">Silakan login untuk melanjutkan</p>
+      <form id="formLogin" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <div class="input-icon"><span class="ikon">✉️</span>
+            <input type="email" id="email" placeholder="nama@email.com" autocomplete="username"></div>
+          <span class="error" id="errEmail"></span>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="input-icon"><span class="ikon">🔒</span>
+            <input type="password" id="password" placeholder="Masukkan password" autocomplete="current-password"></div>
+          <span class="error" id="errPassword"></span>
+        </div>
+        <button type="submit" class="btn-full">Login</button>
+      </form>
+      <div class="link-row">
+        <button type="button" id="btnLupa">Lupa Password?</button>
+        <button type="button" id="btnDaftar">Daftar Akun</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Lupa Password -->
+  <div class="modal" id="modalLupa" role="dialog" aria-modal="true" aria-labelledby="judulLupa">
+    <div class="modal-box">
+      <h2 id="judulLupa">Lupa Password</h2>
+      <p>Masukkan email terdaftar. Kami akan menampilkan petunjuk reset password.</p>
+      <label for="emailLupa">Email</label>
+      <input type="email" id="emailLupa" placeholder="nama@email.com">
+      <span class="error" id="errLupa"></span>
+      <div class="modal-actions">
+        <button type="button" class="secondary" data-tutup="modalLupa">Batal</button>
+        <button type="button" id="btnKirimLupa">Kirim</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Daftar -->
+  <div class="modal" id="modalDaftar" role="dialog" aria-modal="true" aria-labelledby="judulDaftar">
+    <div class="modal-box">
+      <h2 id="judulDaftar">Daftar Akun Baru</h2>
+      <div class="field"><label for="dNama">Nama Lengkap</label><input type="text" id="dNama"><span class="error" id="errDNama"></span></div>
+      <div class="field"><label for="dEmail">Email</label><input type="email" id="dEmail"><span class="error" id="errDEmail"></span></div>
+      <div class="field"><label for="dPass">Password</label><input type="password" id="dPass" placeholder="Minimal 6 karakter"><span class="error" id="errDPass"></span></div>
+      <div class="field"><label for="dPass2">Konfirmasi Password</label><input type="password" id="dPass2"><span class="error" id="errDPass2"></span></div>
+      <div class="modal-actions">
+        <button type="button" class="secondary" data-tutup="modalDaftar">Batal</button>
+        <button type="button" id="btnSimpanDaftar">Daftar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="data.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informasi Stok / Katalog - Toko Buku Online</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="stok.css">
+</head>
+<body>
+  <header>
+    <h1>📖 Informasi Stok / Katalog</h1>
+    <nav aria-label="Navigasi utama">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="index.html" class="nav-link">Pesan Buku</a>
+      <a href="#" id="linkLogout" class="nav-link">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="ringkasan" aria-label="Ringkasan stok">
+      <article class="kartu"><span>Total Judul</span><strong id="totalJudul">0</strong></article>
+      <article class="kartu"><span>Total Stok</span><strong id="totalStok">0</strong></article>
+      <article class="kartu"><span>Stok Habis</span><strong id="totalHabis">0</strong></article>
+    </section>
+
+    <section aria-labelledby="judulTabel">
+      <h2 id="judulTabel">Daftar Stok Buku</h2>
+      <div class="toolbar">
+        <input type="search" id="cari" placeholder="Cari judul atau penulis..." aria-label="Cari buku">
+        <select id="filterKategori" aria-label="Filter kategori"><option value="">Semua Kategori</option></select>
+        <select id="filterStatus" aria-label="Filter status">
+          <option value="">Semua Status</option>
+          <option value="Tersedia">Tersedia</option>
+          <option value="Menipis">Menipis</option>
+          <option value="Habis">Habis</option>
+        </select>
+        <button type="button" id="btnTambah">+ Tambah Stok Baru</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>No</th><th>Judul</th><th>Penulis</th><th>Kategori</th><th>Harga</th><th>Stok</th><th>Status</th><th>Aksi</th></tr>
+          </thead>
+          <tbody id="tabelStok"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer><small>&copy; 2026 Toko Buku Online — Tugas UTS</small></footer>
+
+  <!-- Modal Tambah Stok -->
+  <div class="modal" id="modalTambah" role="dialog" aria-modal="true" aria-labelledby="judulModal">
+    <div class="modal-box">
+      <h2 id="judulModal">Tambah Stok Baru</h2>
+      <div class="field"><label for="fJudul">Judul Buku</label><input type="text" id="fJudul"><span class="error" id="errJudul"></span></div>
+      <div class="field"><label for="fPenulis">Penulis</label><input type="text" id="fPenulis"><span class="error" id="errPenulis"></span></div>
+      <div class="field"><label for="fKategori">Kategori</label>
+        <input type="text" id="fKategori" list="daftarKategori" placeholder="Pilih atau ketik kategori baru">
+        <datalist id="daftarKategori"></datalist><span class="error" id="errKategori"></span></div>
+      <div class="field-dua">
+        <div class="field"><label for="fHarga">Harga (Rp)</label><input type="number" id="fHarga" min="0"><span class="error" id="errHarga"></span></div>
+        <div class="field"><label for="fStok">Jumlah Stok</label><input type="number" id="fStok" min="0"><span class="error" id="errStok"></span></div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="secondary" id="btnBatal">Batal</button>
+        <button type="button" id="btnSimpan">Simpan</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" role="status"></div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
